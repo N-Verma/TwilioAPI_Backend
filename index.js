@@ -6,6 +6,11 @@ var router = express.Router();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
 app.post('/sendmsg',(req,res)=>{
     console.log(req.body.sendTo)
     var to = req.body.sendTo;
