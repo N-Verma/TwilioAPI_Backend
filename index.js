@@ -16,7 +16,7 @@ app.post('/sendmsg',(req,res)=>{
     var to = req.body.sendTo;
     var msg = req.body.message;
     const accountSid = 'ACd8a79ed5db68888a1002e2f7e47f1d18'; 
-    const authToken = 'c7cb41c15fe68e5817b68e33750f67c5'; 
+    const authToken = '4ed5c7ba0abe2d9c50df416e4041d551'; 
     const client = require('twilio')(accountSid, authToken); 
     console.log(typeof to)
     client.messages 
