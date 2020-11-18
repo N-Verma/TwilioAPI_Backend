@@ -12,13 +12,13 @@ app.use((req, res, next) => {
     next();
   });
 
-app.post('/sendmsg',async (req,res)=>{
+app.post('/sendmsg',(req,res)=>{
     console.log(req.body.sendTo)
     var to = req.body.sendTo;
     var msg = req.body.message;
     const accountSid = 'ACd8a79ed5db68888a1002e2f7e47f1d18'; 
     const authToken = process.env.AUTH_TOKEN; 
-    const client = await require('twilio')(accountSid, authToken); 
+    const client = require('twilio')(accountSid, authToken); 
    
     client.messages 
           .create({ 
@@ -28,7 +28,7 @@ app.post('/sendmsg',async (req,res)=>{
            }) 
           .then(message => console.log(message.sid)) 
           .done()
-          .catch((error)=>console.log(res.status(400).send("Sorry Data cannot be Submitted")))
+          
 })
 
 app.listen(4000,()=>{
