@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
@@ -16,7 +17,7 @@ app.post('/sendmsg',async (req,res)=>{
     var to = req.body.sendTo;
     var msg = req.body.message;
     const accountSid = 'ACd8a79ed5db68888a1002e2f7e47f1d18'; 
-    const authToken = '4ed5c7ba0abe2d9c50df416e4041d551'; 
+    const authToken = process.env.AUTH_TOKEN; 
     const client = await require('twilio')(accountSid, authToken); 
    
     client.messages 
